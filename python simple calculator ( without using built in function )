@@ -1,0 +1,106 @@
+print("Simple Calculator")
+
+def expo(x,y):
+    org=x
+    for i in range(1,y):
+                x*=org
+    return x
+
+
+def logfunc(a,b):
+    orgb=b
+    for i in range(1,a):
+        b*=orgb   # using exponention loop to find out the log
+        if(b==a):
+            break
+    return i+1
+
+
+def fact(n):
+    fact=1
+    for i in range(1,n+1):
+        fact=fact*i
+    return fact
+        
+def natexp(x):
+    e=2.71828
+    orge=e
+    for i in range(1,x):
+        e*=orge
+    return e
+        
+        
+    
+           
+
+print(" OPERATIONS ")
+print(" 1. Addition \n 2. Subtraction  \n 3. Multiplication \n 4. Division \n 5. Exponention \n 6. Logarithm \n 7. nCr \n 8. nPr \n 9. Natural Exponention ")
+
+
+
+x='y'
+
+while x.lower()=='y':
+
+    choice = int (input ("Enter your choice number :")) #getting the choice from the user
+
+    if choice==1:
+        a=int(input("Enter first number :"))
+        b=int(input("Enter second number :"))
+        print("Sum =",a+b)
+    elif choice==2:
+        a=int(input("Enter first number :"))
+        b=int(input("Enter second number :"))
+        print("Difference =",a-b)
+    elif choice==3:
+        a=int(input("Enter first number :"))
+        b=int(input("Enter second number :"))
+        print("Product =",a*b)
+    elif choice==4:
+        a=int(input("Enter first number :"))
+        b=int(input("Enter second number :"))
+        print("Quotient =",a/b)
+    elif choice==5:
+        a=int(input("Enter base:"))
+        b=int(input("Enter power:"))
+        ans=expo(a,b)
+        print("The answer is :",ans)
+
+
+    elif choice ==6:
+        a=int (input("Enter the number:"))
+        b=int(input("Enter the base:"))
+        ans=logfunc(a,b)
+        print("The logarithm is :",ans)
+
+
+
+
+        
+
+    elif choice==8:
+        n=int(input("Enter the number of items:"))
+        r=int(input("Enter how many items are taken at a time:"))
+        x=n-r
+        x=fact(x)
+        n=fact(n)
+        r=fact(r)
+        c=n/(x*r)
+        print("The nCr/ Combination is:",c)
+
+    elif choice==9:
+        n=int(input("Enter the number of items:"))
+        r=int(input("Enter how many items are taken at a time:"))
+        x=n-r
+        x=fact(x)
+        n=fact(n)
+        p=n/x
+        print("The nPr / Permutation is:", p)
+    elif choice==10:
+        x=int(input("Enter the number:"))
+        print("The Natural Exponention is:",natexp(x))
+
+
+
+    x=input("Do you want to continue? ( Y for Yes and N for No ) ")
+          

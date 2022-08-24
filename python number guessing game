@@ -1,0 +1,140 @@
+import random
+
+print("Welcome to Number Roulette! \n Here are the rules:")
+print(" 1.Input in the lower and upper limit and the game will randomly decide the number that you need to guess."
+      "\n 2. The game will give you basic hints everytime you guess the wrong number."
+      "\n 3. The game also has extra hints where we will specify the number that is not the answer"
+      "\n 4. The gamme has three levels, depending upon which your number of extra hints and turns will be decided.")
+
+#=========== choosing the level ===========================================
+
+
+
+    
+print("The levels are: \n> Easy \n> Medium \n> Hard ")
+level=input("Choose your level: " )
+
+if str.upper(level)== 'EASY':
+    guesses=15
+    hints=6
+        
+    
+elif str.upper(level)== 'MEDIUM':
+    
+    guesses=10
+    hints=4
+        
+elif str.upper(level)== 'HARD':
+    
+    guesses=5
+    hints=2
+        
+    
+ 
+        
+
+
+        
+    
+   
+#=========== entering upper and lower limits ===========================================    
+    
+
+lower = int(input("Enter the lower limit:"))
+ 
+
+upper = int(input("Enter the upper limit:"))
+
+
+#================================= setting the list with the ranege and removing the number to be guessed ===========================================
+
+numberrange=[]
+
+for i in range(lower,upper+1):
+    numberrange.append(i)
+
+n = random.randint(lower, upper)
+numberrange.remove(n)
+
+
+#=========== start guessing ===========================================
+
+
+print("\nYou have ",guesses," guesses and ",hints,"extra hints!")
+ 
+
+count = 0
+score=guesses
+ 
+
+while count < guesses:
+    count += 1
+ 
+    userinput = int(input("Enter your guess:"))
+ 
+ 
+    if n == userinput:
+        print("Congratulations you did won! It took you ", count ,  " guesses to find the number.")
+        print("Your score is ", score , " out of ", guesses)
+        per=(count/guesses)*100
+        print("Your percentage is:", per)
+        break
+
+
+    
+    elif n > userinput:
+        print("You guessed too small!")
+        score=count-1
+        hintinput=input("\nDo you want to use your extra hint?(Y - Yes & N-no):")
+        
+        if hints>0:
+            
+            if str.upper(hintinput) == 'Y':
+                hints=hints-1
+                h=random.choice(numberrange)
+                print("The number to be guessed is not " , h )
+                numberrange.remove(h)
+            
+        else:
+            print("Sorry!You have no hints left.")
+
+
+
+
+            
+            
+        
+    elif n < userinput:
+        print("You Guessed too high!")
+        score=count-1
+        hintinput=input("\nDo you want to use your extra hint?(Y - Yes & N-no):")
+        
+        if hints>0:
+            
+            if str.upper(hintinput) == 'Y':
+                hints=hints-1
+                h=random.choice(numberrange)
+                print("The number to be guessed is not " , h )
+                numberrange.remove(h)
+            
+        else:
+            print("Sorry!You have no hints left.")
+            
+
+
+
+
+
+
+
+
+            
+ 
+
+
+if count >= guesses:
+    print("You Lost!")
+    print("\nThe number is",n)
+    print("Your score is ", score , " out of ",guesses)
+    per=(count/guesses)*100
+    print("Your percentage is:", per)

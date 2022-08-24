@@ -1,0 +1,70 @@
+print("Simple Calculator")
+
+import math
+
+print(" OPERATIONS ")
+print(" 1. Addition \n 2. Subtraction  \n 3. Multiplication \n 4. Division \n 5. Exponention \n 6. Logarithm \n 7. Natural Logarithm \n 8. nCr \n 9. nPr \n 10. Natural Exponention ")
+
+
+
+x='y'
+
+while x.lower()=='y':
+
+    choice = int (input ("Enter your choice number :")) #getting the choice from the user
+
+    if choice==1:
+        a=int(input("Enter first number :"))
+        b=int(input("Enter second number :"))
+        print("Sum =",a+b)
+    elif choice==2:
+        a=int(input("Enter first number :"))
+        b=int(input("Enter second number :"))
+        print("Difference =",a-b)
+    elif choice==3:
+        a=int(input("Enter first number :"))
+        b=int(input("Enter second number :"))
+        print("Product =",a*b)
+    elif choice==4:
+        a=int(input("Enter first number :"))
+        b=int(input("Enter second number :"))
+        print("Quotient =",a/b)
+    elif choice==5:
+        a=int(input("Enter base:"))
+        b=int(input("Enter power:"))
+        print(a," rise to",b,"=",a**b)
+    elif choice ==6:
+        a=int (input("Enter the number:"))
+        print("The log of",a,"=",math.log(a,10))
+    elif choice ==7:
+        a=int (input("Enter the number:"))
+        print("The natural log of",a,"=",math.log(a))
+    elif choice==8:
+        n=int(input("Enter the number of items:"))
+        r=int(input("Enter how many items are taken at a time:"))
+        x=n-r
+        x=math.factorial(x)
+        n=math.factorial(n)
+        r=math.factorial(r)
+        c=n/(x*r)
+        print("The nCr/ Combination is:",c)
+
+    elif choice==9:
+        n=int(input("Enter the number of items:"))
+        r=int(input("Enter how many items are taken at a time:"))
+        x=n-r
+        x=math.factorial(x)
+        n=math.factorial(n)
+        p=n/x
+        print("The nPr / Permutation is:", p)
+    elif choice==10:
+        x=int(input("Enter the number:"))
+        print("The Natural Exponention is:",math.exp(x))
+
+
+
+    x=input("Do you want to continue? ( Y for Yes and N for No ) ")
+          
+
+
+      

@@ -1,0 +1,54 @@
+import random
+
+print(" ROCK PAPER SCISSORS !")
+print(" RULES \n 1. You can choose from the 3 options which are rock,paper and scissor. \n 2. The computer also randomly chooses from one of the three options. \n 3. The first to score 10 points wins the game. ")
+
+choices=['rock','paper','scissor']
+
+
+userscore=0
+pcscore=0
+play = False
+
+while play == False:
+    userchoice=input("Enter your choice: ")
+    pcchoice=random.choice(choices)
+    print("Your choice is:", userchoice,"Computer's choice is:", pcchoice)
+    if userchoice==pcchoice:
+        print("Both of you entered the same choice. Neither scores a point")
+    elif userchoice=='rock' or userchoice=='ROCK' or userchoice=='Rock':
+        if pcchoice=='paper':
+            print("You loose!")
+            pcscore=pcscore+1
+            print("Computer's Score:",pcscore  , "\t Your Score:", userscore)
+        else:
+            print("You win!")
+            userscore=userscore+1
+            print("Computer's Score:",pcscore , "\t Your Score:", userscore)
+    elif userchoice == 'paper' or userchoice == 'PAPER' or userchoice == 'Paper' :
+        if pcchoice=='scissor':
+            print("You loose!")
+            pcscore=pcscore+1
+            print("Computer's Score:",pcscore , "\t Your Score:", userscore)
+        else:
+            print("You win!")
+            userscore=userscore+1
+            print("Computer's Score:",pcscore , "\t Your Score:", userscore)
+    elif userchoice == 'scissor' or userchoice == 'SCISSOR' or userchoice == 'Scissor' :
+        if pcchoice=='rock':
+            print("You loose!")
+            pcscore=pcscore+1
+            
+            print("Computer's Score:",pcscore , "\t Your Score:", userscore)
+        else:
+            print("You win!")
+            print("Computer's Score:",pcscore , "\t Your Score:", userscore)
+        
+    if pcscore==10 or userscore==10:
+        break
+
+
+if pcscore==10:
+    print("The user wins!")
+else:
+    print("The computer wins!")
